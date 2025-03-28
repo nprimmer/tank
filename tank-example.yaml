@@ -1,0 +1,10 @@
+apiVersion: neilprimmer.com/v1alpha1
+kind: tank
+metadata:
+  name: my-configmap-mirror
+  namespace: operator-config
+spec:
+  source:
+    namespace: source-namespace
+    name: source-config
+  targetConfigMapName: tanked-config

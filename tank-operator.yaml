@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tank
+  namespace: tank
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tank
+  template:
+    metadata:
+      labels:
+        app: tank
+    spec:
+      serviceAccountName: tank-sa
+      containers:
+        - name: tank
+          image: your-registry/your-tank:latest
+          args:
+            - "--kubeconfig=/path/to/kubeconfig"
+            - "--namespace=source-namespace"
+            - "--configmap=source-config"
