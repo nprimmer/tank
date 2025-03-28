@@ -1,5 +1,5 @@
 # Use a minimal base image
-FROM golang:1.18 as builder
+FROM golang:1.24 as builder
 WORKDIR /app
 COPY ./src ./
 RUN go mod download
